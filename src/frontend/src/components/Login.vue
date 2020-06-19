@@ -28,7 +28,6 @@
                         to="/join"
                         color="warning"
                         flat
-                        @click="dialog = false"
                 >
                     회원가입
                 </v-btn>
@@ -36,7 +35,7 @@
                 <v-btn
                         color="primary"
                         flat
-                        @click="dialog = false"
+                        @click="login"
                 >
                     로그인
                 </v-btn>
@@ -46,7 +45,19 @@
 </template>
 
 <script>
-
+export default {
+    data () {
+        return {
+            userid: '',
+            passwd: ''
+        }
+    },
+    methods: {
+        login () {
+            this.$store.dispatch('user/login',{userid:'', passwd:''})
+        }
+    }
+}
 </script>
 
 <style scoped>

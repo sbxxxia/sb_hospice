@@ -11,7 +11,7 @@ const state = {
     item: {}
 }
 const actions = {
-    async search({commit},searchWord){
+    async search({commit},payload){
         axios.get(`${state.context}/${payload.cate}/${payload.searchWord}/${payload.pageNumber}`)
             .then(({data}) => {
                 commit("SEARCH", data)
